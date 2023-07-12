@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -17,7 +17,7 @@ import { fetchPageInfo } from "../../utils/fetchPageInfo";
 import { fetchProject } from "../../utils/fetchProjects";
 import { fetchSkills } from "../../utils/fetchSkills";
 import { fetchSocial } from "../../utils/fetchSocials";
-import pageInfo from "../../sanity/schemas/pageInfo";
+
 
 
 type Props = {
@@ -47,18 +47,17 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
       {/* // About */}
       <section id="about" className="snap-center pb-20">
         <About pageInfo={pageInfo} />
-        {/* <About /> */}
       </section>
+
       {/* // Experiences */}
 
       <section id="experience" className="snap-center">
         <Experiences experiences={experiences} />
-        {/* <Experiences/> */}
       </section>
+
       {/* // Skills */}
       <section id="skills" className="snap-start">
         <Skills skills={skills} />
-        {/* <Skills  /> */}
       </section>
    
 
@@ -66,7 +65,6 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
       <section id="projets" className="snap-start">
         
         <Projects projects={projects} />
-        {/* <Projects /> */}
 
       </section>
 
@@ -85,7 +83,7 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
       </Link>
       
 
-
+ 
     </div>
   );
 };

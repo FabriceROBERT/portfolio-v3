@@ -25,12 +25,18 @@ export default {
     {
       name: "dateStarted",
       title: "DateStarted",
-        type: "date",
+      type: "date",
+      options: {
+        dateFormat: 'DD-MM-YYYY',
+        }
     },
     {
       name: "dateEnded",
       title: "DateEnded",
       type: "date",
+      options: {
+        dateFormat: 'DD-MM-YYYY',
+        }
     },
     {
       name: "isCurrentlyWorkingHere",

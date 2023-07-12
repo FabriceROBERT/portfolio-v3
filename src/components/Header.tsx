@@ -1,19 +1,19 @@
 
 'use client'
+import { useRouter } from "next/router";
 import React from 'react';
-import { fetchSocial } from '../../../../../portfolio-v2/utils/fetchSocials';
 import { motion } from 'framer-motion';
-import ReactDOM from 'react-dom';
 import { SocialIcon } from 'react-social-icons';
-import Link from 'next/link';
 import { Social } from '../../typings';
 type Props = {
   socials: Social[];
 };
 
 export default function Header({ socials }: Props) {
-// export default function Header({ }: Props) {
-  
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("#contact");
+  }; 
   return (
     <header className='sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center'>
       <motion.div
@@ -33,6 +33,12 @@ export default function Header({ socials }: Props) {
         className='flex flex-row items-center'
       >
         {/* Social Icons */}
+
+
+      
+
+
+
         {socials && socials.length > 0 ? (
   socials.map((social) => (
     <SocialIcon
@@ -63,13 +69,21 @@ export default function Header({ socials }: Props) {
         }}
         className='flex flex-row items-center text-gray-300 cursor-pointer'
       >
-        <Link href='#contact'>
-          <SocialIcon fgColor='gray' network='email' bgColor='transparent' />
-        </Link>
-        <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>
-          Prendre Contact
-        </p>
-      </motion.div>
+
+        
+       
+      <div className="inline-flex items-center" onClick={handleClick}>
+          <SocialIcon
+            className="cursor-pointer"
+            network="email"
+            fgColor="gray"
+            bgColor="transparent"
+          />
+           <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
+           Prendre Contact
+          </p>
+      </div>
+            </motion.div>
     </header>
   );
 }

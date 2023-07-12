@@ -86,7 +86,7 @@ export default function About({pageInfo}: Props) {
                   }}
 
           className="sm:text-base text-sm ">
-          {/* {pageInfo?.backgroundInformation} */}
+          {pageInfo?.backgroundInformation}
           
                 </motion.p>
         </div>

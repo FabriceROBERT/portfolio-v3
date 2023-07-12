@@ -15,8 +15,8 @@ interface Image {
 
 export interface Experience extends SanityBody {
     _type: "experience";
-    compagny: string;
-    compagnyImage: Image;
+    company: string;
+    companyImage: Image;
     dateStarted: Date;
     dateEnded: Date;
     isCurrentlyWorkingHere: boolean;
@@ -57,6 +57,7 @@ export interface Project extends SanityBody {
     _type: "project";
     title: string;
     lnkToBuild: string
+    image2: Image;
     image: Image;
     summary: string;
     technologies: Technology[];

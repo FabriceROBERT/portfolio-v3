@@ -1,17 +1,14 @@
 'use client'
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Skill } from '../../../../../portfolio-v2/typings'
-// import { urlFor } from '../../../sanity'
-
-
+import { urlFor } from '../../sanity'
+import { Skill as MySkill } from '../../typings'
 type Props = {
-    // skill: Skill;
+    skill: MySkill;
     directionLeft?: boolean;
 }
 
-// export default function Skill({skill, directionLeft}: Props) {
-export default function Skill({directionLeft}: Props) {
+export default function Skill({skill, directionLeft}: Props) {
   return (
       <div className='group relative flex cursor-pointer'>
           
@@ -22,21 +19,22 @@ export default function Skill({directionLeft}: Props) {
               }}
               transition={{ duration: 1 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className=' rounded-full border border-gray-500 object-cover w-24 h-24 xl:w-32 xl:h-32 
+              className=' rounded-full border border-gray-500 object-cover w-24 h-24 xl:w-28 xl:h-28 
               filter group-hover:grayscale transition duration-300 ease-in-out md:w-28 md:h-28'
 
-            //   src={urlFor(skill?.image).url()}
-              
-          src='https://cdn.iconscout.com/icon/free/png-512/free-mysql-21-1174941.png?f=avif&w=256'/>
+              src={urlFor(skill?.image).url()}
+             />
 
-          <div className='absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out z-0 
-          group-hover:bg-[#F7AB0A] md:w-28 md:h-28 h-24 w-24 xl:w-32 xl:h-32 rounded-full'>
-              <div className='flex items-center justify-center h-full'>
-                  <p className='text-3xl font-bold text-gray-800 opacity-80'>
-                      {/* {skill.progress} */}
-                      100%</p>
-              </div>
-          </div>
+<div className='absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out z-0 
+          group-hover:bg-[#F7AB0A] md:w-28 md:h-28 h-24 w-24 xl:w-28 xl:h-28 rounded-full'>
+  <div className='flex items-center justify-center h-full'>
+    {skill?.progress && (
+      <p className='text-3xl font-bold text-gray-800 opacity-80'>
+        {skill.progress} %
+      </p>
+    )}
+  </div>
+</div>
 
     </div>  
   )
