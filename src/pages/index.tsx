@@ -1,20 +1,7 @@
 'use client'
 import React from "react";
 import Link from "next/link";
-// import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
-// import Header from "@/app/components/Header";
-// import Hero from "@/app/components/Hero";
-// import About from "@/app/components/About";
-// import Experiences from "@/app/components/Experience";
-// import Skills from "@/app/components/Skills";
-// import ContactMe from "@/app/components/ContactMe";
-// import Projects from "@/app/components/Projects";
-// import { Experience, PageInfo, Project, Skill, Social } from "../typings";
-// import { fetchExperience } from "../utils/fetchExperiences";
-// import { fetchPageInfo } from "../utils/fetchPageInfo";
-// import { fetchProject } from "../utils/fetchProjects";
-// import { fetchSkills } from "../utils/fetchSkills";
-// import { fetchSocial } from "../utils/fetchSocials";
+
 import { GetStaticProps } from "next";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -24,20 +11,25 @@ import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
 import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
+import { Experience, PageInfo, Project, Skill, Social } from "../../typings";
+import { fetchExperience } from "../../utils/fetchExperiences";
+import { fetchPageInfo } from "../../utils/fetchPageInfo";
+import { fetchProject } from "../../utils/fetchProjects";
+import { fetchSkills } from "../../utils/fetchSkills";
+import { fetchSocial } from "../../utils/fetchSocials";
+import pageInfo from "../../sanity/schemas/pageInfo";
 
 
 type Props = {
-  // pageInfo: PageInfo;
-  // experiences: Experience[];
-  // skills: Skill[];
-  // projects: Project[];
-  // socials: Social[];
+  pageInfo: PageInfo;
+  experiences: Experience[];
+  skills: Skill[];
+  projects: Project[];
+  socials: Social[];
 }
 
 
-// const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
-const Home = ({ }: Props) => {
-// const Home = ({ }: Props) => {
+const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0
     scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
@@ -45,27 +37,27 @@ const Home = ({ }: Props) => {
      
       {/* Header  */}
 
-      <Header />
+      <Header socials={socials}/>
       
       {/* Hero */}
       <section id="hero" className="snap-start">
-        <Hero />
+        <Hero pageInfo={pageInfo}/>
       </section>
     
       {/* // About */}
       <section id="about" className="snap-center pb-20">
-        {/* <About pageInfo={pageInfo} /> */}
-        <About />
+        <About pageInfo={pageInfo} />
+        {/* <About /> */}
       </section>
       {/* // Experiences */}
 
       <section id="experience" className="snap-center">
-        {/* <Experiences experiences={experiences} /> */}
-        <Experiences/>
+        <Experiences experiences={experiences} />
+        {/* <Experiences/> */}
       </section>
       {/* // Skills */}
       <section id="skills" className="snap-start">
-        {/* <Skills skills={skills} /> */}
+        <Skills skills={skills} />
         {/* <Skills  /> */}
       </section>
    
@@ -73,8 +65,8 @@ const Home = ({ }: Props) => {
       {/* // Pojects */}
       <section id="projets" className="snap-start">
         
-        {/* <Projects projects={projects} /> */}
-        <Projects />
+        <Projects projects={projects} />
+        {/* <Projects /> */}
 
       </section>
 
@@ -99,23 +91,23 @@ const Home = ({ }: Props) => {
 };
 
 
-// export const getStaticProps: GetStaticProps<Props> = async () => {
-//   const pageInfo: PageInfo = await fetchPageInfo();
-//   const experiences: Experience[] = await fetchExperience();
-//   const skills: Skill[] = await fetchSkills();
-//   const projects: Project[] = await fetchProject();
-//   const socials: Social[] = await fetchSocial();
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageInfo: PageInfo = await fetchPageInfo();
+  const experiences: Experience[] = await fetchExperience();
+  const skills: Skill[] = await fetchSkills();
+  const projects: Project[] = await fetchProject();
+  const socials: Social[] = await fetchSocial();
   
-//   return {
-//     props: {
-//       pageInfo,
-//       experiences,
-//       skills,
-//       projects,
-//       socials,
-//     },
-//   } 
-// }
+  return {
+    props: {
+      pageInfo,
+      experiences,
+      skills,
+      projects,
+      socials,
+    },
+  } 
+}
 
 
 export default Home;

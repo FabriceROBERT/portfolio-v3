@@ -6,13 +6,13 @@ import { motion } from 'framer-motion';
 import ReactDOM from 'react-dom';
 import { SocialIcon } from 'react-social-icons';
 import Link from 'next/link';
-import { Social } from '../../../../../portfolio-v2/typings';
+import { Social } from '../../typings';
 type Props = {
-  // socials: Social[];
+  socials: Social[];
 };
 
-// export default function Header({ socials }: Props) {
-export default function Header({ }: Props) {
+export default function Header({ socials }: Props) {
+// export default function Header({ }: Props) {
   
   return (
     <header className='sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center'>
@@ -33,7 +33,7 @@ export default function Header({ }: Props) {
         className='flex flex-row items-center'
       >
         {/* Social Icons */}
-        {/* {socials && socials.length > 0 ? (
+        {socials && socials.length > 0 ? (
   socials.map((social) => (
     <SocialIcon
       key={social._id}
@@ -44,17 +44,7 @@ export default function Header({ }: Props) {
   ))
 ) : (
   <p>Aucune donnée sociale disponible</p>
-)} */}
-        <SocialIcon
-          url='https://www.github.com/FabriceROBERT'
-          fgColor='gray'
-          bgColor='transparent'
-        />
-        <SocialIcon
-          url='https://www.linkedin.com/in/fabrice-robert9536/'
-          fgColor='gray'
-          bgColor='transparent'
-        />
+)}
       </motion.div>
 
       <motion.div

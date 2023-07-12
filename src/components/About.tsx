@@ -1,20 +1,21 @@
 'use client'
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
-import { PageInfo } from '../../../../../portfolio-v2/typings'
-import { urlFor } from '../../../../../portfolio-v2/sanity'
+import { PageInfo } from '../../typings'
+import { urlFor } from '../../sanity'
+
+
 
 type Props = {
-  // pageInfo: PageInfo
+  pageInfo: PageInfo
   
 }
 
-// export default function About({pageInfo}: Props) {
-//   const [data, setData] = useState<PageInfo>(pageInfo); // définition de la variable d'état pour stocker les données récupérées
+export default function About({pageInfo}: Props) {
   
   
 
-export default function About({}: Props) {
+// export default function About({}: Props) {
   return (
       <motion.div
           className=" flex flex-col relative text-center xl:text-left xl:flex-row h-screen md:max-w-7xl max-w-9xl px-10 justify-evenly my-20 mx-auto items-center">
@@ -41,8 +42,7 @@ export default function About({}: Props) {
                   duration: 1.0,
               }}
 
-              // src={urlFor(pageInfo?.profilePic).url()}
-              src="https://gifdb.com/images/high/excuse-me-blinking-meme-b575wnxukw7aiqbd.gif"
+              src={urlFor(pageInfo?.profilePic).url()}
               className="my-20 mx-20 mt-80 -mb-5 md:mb-0 flex-shrink-0 w-52 h-52 sm:w-[300px] sm:h-[300px]
               rounded-full object-cover md:rounded-lg md:w-72 md:h-72 xl:w-[500px] xl:h-[600px]"/>
           
