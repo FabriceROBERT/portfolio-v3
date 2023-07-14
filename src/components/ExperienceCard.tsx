@@ -28,10 +28,10 @@ export default function ExperienceCard({experience}: Props) {
         <p className='font-bold text-2xl mt-1 uppercase '>{experience.company}</p>
         <div className='flex space-x-2 my-2'>
 
-          {experience.technologies.map(technology => (
+          {experience.technologies?.map(technology => (
             <img
               key={technology._id}
-              className='h-16 w-16 rounded-full'
+              className='h-10 w-10 rounded-full'
               src={urlFor(technology.image).url()}
             
             />
